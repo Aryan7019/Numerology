@@ -176,7 +176,7 @@ function Home() {
               <h4 className="text-xl md:text-2xl font-semibold mb-2">Senior Vastu Consultant</h4>
               <h3 className="text-2xl md:text-3xl font-bold">Yashraj Guruji</h3>
               <p className="text-md md:text-lg mt-2">
-                With years of experience in vastu and numerology, Aarav specializes in harmonizing spaces and guiding spiritual alignment.
+                With years of experience in vastu and numerology, specializes in harmonizing spaces and guiding spiritual alignment.
               </p>
               <p className="mt-4">📍 C1, Yamuna Vihar, Delhi-110053</p>
               <p>📞 (+91) 9650189822 </p>
