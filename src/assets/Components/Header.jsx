@@ -5,6 +5,12 @@ import { Menu, X } from "lucide-react";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navLinks = [
+    { name: "HOME", path: "/" },
+    { name: "STUDY", path: "/study" },
+    { name: "CALCULATOR", path: "/calculator" },
+  ];
+
   return (
     <header className="bg-orange-600 text-white p-6 flex justify-between items-center shadow-lg fixed top-0 left-0 w-full z-50 rounded-b-2xl backdrop-blur-md bg-opacity-90">
       {/* Logo */}
@@ -13,23 +19,23 @@ function Header() {
       {/* Hamburger Menu Button (Mobile) */}
       <button
         className={`md:hidden focus:outline-none transition-transform duration-300 ${isOpen ? "rotate-90" : "rotate-0"}`}
-        onClick={() => setIsOpen(!isOpen)}>
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? <X size={32} /> : <Menu size={32} />}
       </button>
 
       {/* Navigation Links - Desktop */}
       <nav className="hidden md:block">
         <ul className="flex space-x-8 text-xl font-semibold">
-          {["HOME", "STUDY", "CALCULATOR"].map((text, index) => (
+          {navLinks.map(({ name, path }, index) => (
             <li key={index} className="relative">
               <NavLink
-                to={text.toLowerCase()}
+                to={path}
                 className={({ isActive }) =>
-                  `relative pb-1 after:block after:content-[''] after:absolute after:w-0 after:h-1 after:bg-white after:rounded-full after:transition-all after:duration-300 after:left-0 hover:after:w-full ${
-                    isActive ? "text-black after:w-full" : ""
-                  }`}
+                  `${isActive ? "text-black" : ""} transition-colors duration-200`
+                }
               >
-                {text}
+                {name}
               </NavLink>
             </li>
           ))}
@@ -43,16 +49,16 @@ function Header() {
         }`}
       >
         <ul className="flex flex-col items-center space-y-4 p-6 text-xl font-semibold">
-          {["HOME", "STUDY", "CALCULATOR"].map((text, index) => (
+          {navLinks.map(({ name, path }, index) => (
             <li key={index}>
               <NavLink
-                to={text.toLowerCase()}
+                to={path}
                 className={({ isActive }) =>
-                  `block px-4 py-2 hover:bg-orange-500 rounded transition ${isActive ? "text-black" : ""}`
+                  `${isActive ? "text-black" : ""} block px-4 py-2 rounded transition-colors duration-200`
                 }
                 onClick={() => setIsOpen(false)}
               >
-                {text}
+                {name}
               </NavLink>
             </li>
           ))}
